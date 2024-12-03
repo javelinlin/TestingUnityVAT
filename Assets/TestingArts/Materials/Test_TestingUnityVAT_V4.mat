@@ -25,11 +25,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d40d6bd852005724f82c5573653085b3, type: 3}
+        m_Texture: {fileID: 2800000, guid: cfee111e9604c3d47bff5806566a2b90, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _VATTex:
-        m_Texture: {fileID: 2800000, guid: 390ca9f0958a39840a21bdd9f1d80afc, type: 2}
+        m_Texture: {fileID: 2800000, guid: 816bf8be4fa7014459017c801dde12c1, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
@@ -43,4 +43,5 @@ Material:
     - _UsPlayTime: 0
     m_Colors:
     - _DeltaPosBounds: {r: -1.073823, g: 2.495121, b: 0, a: 0}
+    - _PackData0: {r: 0.53333336, g: 30, b: 0, a: 1}
   m_BuildTextureStacks: []
