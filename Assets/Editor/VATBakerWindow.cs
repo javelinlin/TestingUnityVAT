@@ -140,20 +140,24 @@ public class VATBakerWindow : EditorWindow
     private void SetSrcObjectAnimatorDefaultState()
     {
         var animator = skinGameObjRoot.GetComponent<Animator>();
-        if (animator != null)
+        if (animator == null)
         {
-            AnimatorController animatorController = animator.runtimeAnimatorController as AnimatorController;
-            if (animatorController != null)
-            {
-                // 设定要修改的层索引，0表示默认层
-                int layerIndex = 0;
-                var layer = animatorController.layers[layerIndex];
-
-                // 设置默认状态
-                var defualtState = layer.stateMachine.states.FirstOrDefault(s => s.state.name == clip.name).state;
-                layer.stateMachine.defaultState = defualtState;
-            }
+            animator = skinGameObjRoot.AddComponent<Animator>();
         }
+        AnimatorController animatorController = animator.runtimeAnimatorController as AnimatorController;
+        if (animatorController == null)
+        {
+            animatorController = AssetDatabase.LoadAssetAtPath<AnimatorController>(
+                "Assets/TestingArts/Animations/AnimatorController.controller");
+            animator.runtimeAnimatorController = animatorController;
+        }
+        // 设定要修改的层索引，0表示默认层
+        int layerIndex = 0;
+        var layer = animatorController.layers[layerIndex];
+
+        // 设置默认状态
+        var defualtState = layer.stateMachine.states.FirstOrDefault(s => s.state.name == clip.name).state;
+        layer.stateMachine.defaultState = defualtState;
     }
 
     private void InitiateVatGO4Testing(SkinnedMeshRenderer skinRenderer, Texture2D texture)
