@@ -49,7 +49,7 @@ Shader "Test/TestingUnityVAT_V4"
 
             inline float CalcVatAnimationTime(float time)
             {
-                return (time % _Duration) * _FPS;
+                return _IsLoop == 1.0 ? (time * _FPS) % _Duration : (time * _FPS);
             }
 
             inline float4 CalcVatTexCoord(uint vertexId, float animationTime)
